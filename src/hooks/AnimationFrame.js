@@ -1,11 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
 Object.defineProperty(exports, "__esModule", { value: true });
-
-import React, { useState, useEffect, useRef } from 'react'
-
+var react_1 = require("react");
 exports.default = (function (callback) {
-    var frame = useRef();
-    var last = useRef(performance.now());
-    var init = useRef(performance.now());
+    var frame = react_1.useRef();
+    var last = react_1.useRef(performance.now());
+    var init = react_1.useRef(performance.now());
     var animate = function () {
         var now = performance.now();
         var time = (now - init.current) / 1000;
@@ -14,7 +13,7 @@ exports.default = (function (callback) {
         last.current = now;
         frame.current = requestAnimationFrame(animate);
     };
-    useEffect(function () {
+    react_1.useEffect(function () {
         frame.current = requestAnimationFrame(animate);
         return function () { return cancelAnimationFrame(frame.current); };
     });
